@@ -21,14 +21,17 @@ function updateButton(build_status, last_built_on) {
       
     case ("failed"):
       $('#build').html("FAILED!");
+      $('#build').attr('disabled', true);
       break;
       
     case ("building"):
       $('#build').html("BUILDING...");
+      $('#build').attr('disabled', true);
       break;
       
     case ("deploying"):
       $('#build').html("DEPLOYING...");
+      $('#build').attr('disabled', true);
       break;
   }
 }
@@ -42,6 +45,21 @@ jQuery.fn.stripClasses = function() {
   }
   return this;
 };
+
+$("#build").click(function (){
+  $('#build').html("DEPLOYING...");
+  $('#build').stripClasses().addClass("deploying").attr('disabled', true);
+  $.getJSON('/status.json', function(data) {
+    $.ajax({
+      url: "/deploy", 
+      data: { 'status': "deploying", 'last_built': data['last_built'] },
+      success: function(){
+        $('#build').html("DEPLOYED!");
+        $('#build').addClass("deployed").attr('disabled', false);
+      }
+    });
+  });
+});
 
 jQuery( function() {
   checkStatus();
