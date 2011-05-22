@@ -28,6 +28,8 @@ button.failed {
 }
 
 #last_deployed {
-  width: 98%;
-  text-align: cennter;
+  margin: 4px;
+  padding 16px;
+  width: 420px;
+  text-align: center;
 }
