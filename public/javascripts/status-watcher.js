@@ -22,7 +22,11 @@ function updateButton(build_status, last_built_on) {
       break;
       
     case ("building"):
-      $('#build').html("TESTING...");
+      $('#build').html("BUILDING...");
+      break;
+      
+    case ("deploying"):
+      $('#build').html("DEPLOYING...");
       break;
   }
 }

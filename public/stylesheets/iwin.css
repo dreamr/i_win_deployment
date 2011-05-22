@@ -11,6 +11,11 @@ button.building {
   color: black;
 }
 
+button.deploying {
+  background-color: grey;
+  color: black;
+}
+
 button.built {
   background-color: green;
   color: white;
