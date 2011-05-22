@@ -14,6 +14,8 @@ function updateButton(build_status, last_built_on) {
   switch(build_status) {
     case ("built"):
       $('#last_deployed').html("Acceptance tests were verified at "+last_built_on);
+      break;
+      
     case ("deployed"):
       $('#last_deployed').html("The last deployment was at "+last_built_on);
       $('#build').html("DEPLOY TO STAGING");
