@@ -9,7 +9,6 @@ class App < Sinatra::Base
   set :public, File.dirname(__FILE__) + '/public'
   
   get '/' do
-    @foo = 'erb'
     erb :index
   end
   
@@ -22,6 +21,11 @@ class App < Sinatra::Base
     File.open(File.expand_path('../data/build.json', __FILE__), 'w') { |f|
       f.write(params.to_json)
     }
+  end
+  
+  post '/deploy' do
+    `cap staging deploy`
+    erb :index
   end
 end
 

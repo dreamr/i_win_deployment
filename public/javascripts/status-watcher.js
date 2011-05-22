@@ -11,9 +11,11 @@ function checkStatus() {
 
 function updateButton(build_status, last_built_on) {
   $('#build').stripClasses().addClass(build_status);
-  $('#last_deployed').html("Last built on "+last_built_on);
   switch(build_status) {
     case ("built"):
+      $('#last_deployed').html("Last built at "+last_built_on);
+    case ("deployed"):
+      $('#last_deployed').html("Last deployed at "+last_built_on);
       $('#build').html("DEPLOY");
       break;
       
