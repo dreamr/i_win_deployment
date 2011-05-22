@@ -25,7 +25,7 @@ namespace :deploy do
   desc "mark a file with the last deploy time"
   task :mark, :roles => :app, :except => { :no_release => true } do
     puts "** Adding timestamp to _deployed_at partial"
-    run "echo '#{DateTime.now}' > #{current_path}/app/views/layouts/_deployed_at.html.erb"
+    run "echo '#{DateTime.now.strftime("at %I:%M%p on %m/%d/%Y")}' > #{current_path}/app/views/layouts/_deployed_at.html.erb"
   end
   
   desc "Restarting mod_rails with restart.txt"
