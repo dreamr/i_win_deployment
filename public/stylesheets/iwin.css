@@ -1,0 +1,28 @@
+button.deployment {
+  width: 220px;
+  height: 120px;
+  font-size: 20pt;
+  font-weight: bold;
+  border-width: 8px;
+}
+
+button.building {
+  background-color: grey;
+  color: black;
+}
+
+button.built {
+  background-color: green;
+  color: white;
+}
+
+button.failed {
+  background-color: red;
+  color: black;
+}
+
+.centered {
+  position: fixed;
+  top: 33%;
+  left: 40%;
+}
