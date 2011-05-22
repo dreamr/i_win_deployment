@@ -31,10 +31,12 @@ class App < Sinatra::Base
     `cap staging deploy`
     File.open(File.expand_path('../data/build.json', __FILE__), 'w') { |f|
       f.write(
-        { :status => "deployed", :last_built => DateTime.now  }.to_json
+        {
+          :status => "deployed", 
+          :last_built => DateTime.now.strftime("%m/%d/%Y %I:%M%p")
+        }.to_json
       )
     }
     erb :index
   end
 end
-
