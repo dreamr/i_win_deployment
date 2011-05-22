@@ -6,7 +6,7 @@ function checkStatus() {
   
   setTimeout(function() {
     checkStatus();
-  }, 6000);
+  }, 10000);
 }
 
 function updateButton(build_status, last_built_on) {

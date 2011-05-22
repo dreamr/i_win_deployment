@@ -33,7 +33,7 @@ class App < Sinatra::Base
       f.write(
         {
           :status => "deployed", 
-          :last_built => DateTime.now.strftime("%m/%d/%Y %I:%M%p")
+          :last_built => DateTime.now.strftime("at %I:%M%p on %m/%d/%Y")
         }.to_json
       )
     }
