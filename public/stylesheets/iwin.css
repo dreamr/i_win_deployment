@@ -6,17 +6,12 @@ button.deployment {
   border-width: 8px;
 }
 
-button.building {
+button.building, button.deploying {
   background-color: grey;
   color: black;
 }
 
-button.deploying {
-  background-color: grey;
-  color: black;
-}
-
-button.built {
+button.built, button.deployed {
   background-color: green;
   color: white;
 }
