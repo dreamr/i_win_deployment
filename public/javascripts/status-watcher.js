@@ -6,19 +6,19 @@ function checkStatus() {
   
   setTimeout(function() {
     checkStatus();
-  }, 10000);
+  }, 4200);
 }
 
 function updateButton(build_status, last_built_on) {
   $('#build').stripClasses().addClass(build_status);
   switch(build_status) {
     case ("built"):
-      $('#last_deployed').html("Acceptance tests were verified at "+last_built_on);
+      $('#last_deployed').html("Acceptance tests were verified "+last_built_on);
       $('#build').html("DEPLOY TO STAGING");
       break;
       
     case ("deployed"):
-      $('#last_deployed').html("The last deployment was at "+last_built_on);
+      $('#last_deployed').html("The last deployment was "+last_built_on);
       $('#build').html("DEPLOY TO STAGING");
       break;
       
@@ -50,7 +50,7 @@ jQuery.fn.stripClasses = function() {
 };
 
 $("#build").click(function (){
-  $('#build').html("DEPLOYING...");
+  $('#build').html("DEPLOYING APPLICATION");
   $('#build').stripClasses().addClass("deploying").attr('disabled', true);
   $.getJSON('/status.json', function(data) {
     $.ajax({
@@ -59,7 +59,10 @@ $("#build").click(function (){
       data: { 'status': "deploying", 'last_built': data['last_built'] },
       success: function(){
         $('#build').html("DEPLOYED!");
-        $('#build').addClass("deployed").attr('disabled', false);
+        $('#build').stripClasses().addClass("just_deployed").attr('disabled', true);
+        setTimeout(function() {
+          $('#build').stripClasses().addClass("deployed").attr('disabled', false);
+        }, 10000);
       }
     });
   });

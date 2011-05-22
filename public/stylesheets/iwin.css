@@ -21,6 +21,11 @@ button.failed {
   color: black;
 }
 
+button.just_deployed {
+  background-color: yellow;
+  color: black;
+}
+
 .centered {
   position: fixed;
   top: 30%;
