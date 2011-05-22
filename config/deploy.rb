@@ -43,4 +43,3 @@ namespace :bundle do
 end
 
 after 'deploy:update_code', 'bundle:install'
-after 'deploy', 'deploy:notify'
