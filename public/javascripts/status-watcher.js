@@ -13,14 +13,14 @@ function updateButton(build_status, last_built_on) {
   $('#build').stripClasses().addClass(build_status);
   switch(build_status) {
     case ("built"):
-      $('#last_deployed').html("Last built at "+last_built_on);
+      $('#last_deployed').html("Acceptance tests were verified at "+last_built_on);
     case ("deployed"):
-      $('#last_deployed').html("Last deployed at "+last_built_on);
+      $('#last_deployed').html("The last deployment was at "+last_built_on);
       $('#build').html("DEPLOY TO STAGING");
       break;
       
     case ("failed"):
-      $('#build').html("BUILD FAILED!");
+      $('#build').html("ACCEPTANCE TESTS FAILED!");
       $('#build').attr('disabled', true);
       break;
       

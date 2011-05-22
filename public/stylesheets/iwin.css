@@ -26,3 +26,8 @@ button.failed {
   top: 30%;
   left: 30%;
 }
+
+#last_deployed {
+  width: 98%;
+  text-align: cennter;
+}
