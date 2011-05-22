@@ -6,4 +6,4 @@ set :environment,      :production
 
 disable :run, :reload
  
-run Sinatra::Application
+run App.new
