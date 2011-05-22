@@ -51,7 +51,7 @@ $("#build").click(function (){
   $('#build').stripClasses().addClass("deploying").attr('disabled', true);
   $.getJSON('/status.json', function(data) {
     $.ajax({
-      method: 'post',
+      type: 'post',
       url: "/deploy", 
       data: { 'status': "deploying", 'last_built': data['last_built'] },
       success: function(){
