@@ -16,21 +16,21 @@ function updateButton(build_status, last_built_on) {
       $('#last_deployed').html("Last built at "+last_built_on);
     case ("deployed"):
       $('#last_deployed').html("Last deployed at "+last_built_on);
-      $('#build').html("DEPLOY");
+      $('#build').html("DEPLOY TO STAGING");
       break;
       
     case ("failed"):
-      $('#build').html("FAILED!");
+      $('#build').html("BUILD FAILED!");
       $('#build').attr('disabled', true);
       break;
       
     case ("building"):
-      $('#build').html("BUILDING...");
+      $('#build').html("RUNNING ACCEPTANCE TESTS");
       $('#build').attr('disabled', true);
       break;
       
     case ("deploying"):
-      $('#build').html("DEPLOYING...");
+      $('#build').html("DEPLOYING APPLICATION");
       $('#build').attr('disabled', true);
       break;
   }
